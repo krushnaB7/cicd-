@@ -22,7 +22,7 @@ jobs:
         cache: 'npm'
 
     - name: install dependancy
-      run: npm install
+      run: npm ci
 
     - name: build react app 
       run: npm run bulid
