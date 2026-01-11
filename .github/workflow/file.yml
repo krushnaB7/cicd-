@@ -1,0 +1,31 @@
+name: react-app ci
+
+on: 
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+   runs-on: ubantu-latest
+
+   steps:
+  
+    - name: chaeckout code
+      uses: action/checkout@v4
+
+    - name: setup node
+      uses: action/setup-node@v4
+      with: 
+        node-version: 18
+        cache: 'npm'
+
+    - name: install dependancy
+      run: npm install
+
+    - name: build react app 
+      run: npm run bulid
+
+    - name: test build is succesful
+      run: ls -la build
